@@ -1,10 +1,5 @@
-import UI.CButton;
-import UI.CPanel;
-import UI.CWindow;
-import Utils.Match;
-import Utils.MatchSettings;
-import Utils.TeamSettings;
-
+import UI.*;
+import Utils.*;
 import java.awt.event.*;
 
 public class Main implements ActionListener{
@@ -18,6 +13,7 @@ public class Main implements ActionListener{
 			public void actionPerformed(ActionEvent e){
 				if(e.getActionCommand() == "New Match"){
 					Match match = MatchSettings.LoadMatchSettings(window);
+					match.printData();
 					match = TeamSettings.LoadTeamSettings(window, match, 0);
 					match = TeamSettings.LoadTeamSettings(window, match, 1);
 				}
@@ -30,5 +26,6 @@ public class Main implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 	}
 }

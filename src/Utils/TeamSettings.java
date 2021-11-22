@@ -1,16 +1,10 @@
 package Utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.util.*;
+import javax.swing.*;
 
 public class TeamSettings {
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings({ "unused" })
 	public static Match LoadTeamSettings(JFrame window , Match match, int teamNumber) {
 		List<JTextField> players = new ArrayList<JTextField>();
 		JTextField player1 = new JTextField(10);
