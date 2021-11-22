@@ -31,7 +31,12 @@ public class MatchSettings {
 		String[] teamArray = {side1.getText(), side2.getText()};
 		JComboBox<String> tossDropDown = new JComboBox<String>(teamArray);
 		tossPanel.add(tossDropDown);
+		String[] decision = {
+			"Bat", "Bowl"
+		};
+		JComboBox<String> tossDecision = new JComboBox<String>(decision);
+		tossPanel.add(tossDecision);
 		CInputPopUp tossPopUp = new CInputPopUp(window, tossPanel, "Conduct the Toss");
-		return new Match(organizer.getText(), side1.getText(), side2.getText(), ground.getText(), tossDropDown.getSelectedItem().toString());
+		return new Match(organizer.getText(), side1.getText(), side2.getText(), ground.getText(), tossDropDown.getSelectedItem().toString(), tossDecision.getSelectedItem().toString());
 	}
 }

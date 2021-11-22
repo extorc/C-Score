@@ -8,20 +8,30 @@ public class Match {
     private String side2;
     private String ground;
     private String tossVictor;
-    
+    private String tossDecision;
+
     public List<String> team1 = new ArrayList<String>();
     public List<String> team2 = new ArrayList<String>();
     
     public List<List<String>> teams = new ArrayList<List<String>>();
     
-    public Match(String organizer, String side1, String side2, String ground, String tossVictor){
+    public Match(String organizer, String side1, String side2, String ground, String tossVictor, String tossDecision){
         this.organizer = organizer;
         this.side1 = side1;
         this.side2 = side2;
         this.ground = ground;
         this.tossVictor = tossVictor;
+        this.tossDecision = tossDecision;
         teams.add(team1);
         teams.add(team2);
+    }
+
+    public String getTossDecision() {
+        return tossDecision;
+    }
+
+    public void setTossDecision(String tossDecision) {
+        this.tossDecision = tossDecision;
     }
 
     public String getTossVictor() {
@@ -65,6 +75,6 @@ public class Match {
     }
 
     public void printData(){
-        System.out.println(this.getOrganizer() + ":" + this.getSide1() + " vs " + this.getSide2() + " At " + this.ground + " And toss Won by " + this.tossVictor);
+        System.out.println(this.getOrganizer() + ":" + this.getSide1() + " vs " + this.getSide2() + " At " + this.ground + " And toss Won by " + this.tossVictor + " And decided to " + this.tossDecision);
     }
 }
