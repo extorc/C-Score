@@ -1,12 +1,11 @@
 package Utils;
 
-import java.util.*;
+import java.util.List;
 import javax.swing.*;
 
 public class TeamSettings {
 	@SuppressWarnings({ "unused" })
-	public static Match LoadTeamSettings(JFrame window , Match match, int teamNumber) {
-		List<JTextField> players = new ArrayList<JTextField>();
+	public static List<String> LoadTeamSettings(JFrame window , List<String> team) {
 		JTextField player1 = new JTextField(10);
 		JTextField player2 = new JTextField(10);
 		JTextField player3 = new JTextField(10);
@@ -32,9 +31,6 @@ public class TeamSettings {
 		JLabel player11Label = new JLabel("Player 11 : ");
 		JPanel newMatchPanel = new JPanel();
 		newMatchPanel.setLayout(new BoxLayout(newMatchPanel, BoxLayout.Y_AXIS));
-		for(JTextField t : players) {
-			newMatchPanel.add(t);
-		}
 		newMatchPanel.add(mainLabel);
 		newMatchPanel.add(player1Label);
 		newMatchPanel.add(player1);
@@ -59,17 +55,17 @@ public class TeamSettings {
 		newMatchPanel.add(player11Label);
 		newMatchPanel.add(player11);
 		CInputPopUp matchPopup = new CInputPopUp(window, newMatchPanel, "Enter Match Data");
-		match.teams.get(teamNumber).add(player1.getText());
-		match.teams.get(teamNumber).add(player2.getText());
-		match.teams.get(teamNumber).add(player3.getText());
-		match.teams.get(teamNumber).add(player4.getText());
-		match.teams.get(teamNumber).add(player5.getText());
-		match.teams.get(teamNumber).add(player6.getText());
-		match.teams.get(teamNumber).add(player7.getText());
-		match.teams.get(teamNumber).add(player8.getText());
-		match.teams.get(teamNumber).add(player9.getText());
-		match.teams.get(teamNumber).add(player10.getText());
-		match.teams.get(teamNumber).add(player11.getText());
-		return match;
+		team.add(player1.getText());
+		team.add(player2.getText());
+		team.add(player3.getText());
+		team.add(player4.getText());
+		team.add(player5.getText());
+		team.add(player6.getText());
+		team.add(player7.getText());
+		team.add(player8.getText());
+		team.add(player9.getText());
+		team.add(player10.getText());
+		team.add(player11.getText());
+		return team;
 	}
 }

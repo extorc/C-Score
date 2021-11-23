@@ -9,12 +9,20 @@ public class Match {
 
     public List<String> team1 = new ArrayList<String>();
     public List<String> team2 = new ArrayList<String>();
-    
-    public List<List<String>> teams = new ArrayList<List<String>>();
-    
+        
     public Match(JFrame window){
         this.matchSettings = MatchSettings.LoadMatchSettings(window);
-        teams.add(team1);
-        teams.add(team2);
+        team1 = TeamSettings.LoadTeamSettings(window, team1);
+        team2 = TeamSettings.LoadTeamSettings(window, team2);
+    }
+
+    public void printData(){
+        this.matchSettings.printData();
+        for(String s : team1){
+            System.out.println(s);
+        }
+        for(String s : team2){
+            System.out.println(s);
+        }
     }
 }
