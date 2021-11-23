@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.swing.JFrame;
 
+import UI.CWindow;
+
 public class Match {
     public MatchSettings matchSettings;
 
@@ -14,6 +16,9 @@ public class Match {
         this.matchSettings = MatchSettings.LoadMatchSettings(window);
         team1 = TeamSettings.LoadTeamSettings(window, team1);
         team2 = TeamSettings.LoadTeamSettings(window, team2);
+        CWindow window2 = new CWindow("C-Score");
+        window2.SetMaximized();
+        window2.setVisible(true);
     }
 
     public void printData(){
