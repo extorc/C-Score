@@ -2,79 +2,19 @@ package Utils;
 
 import java.util.*;
 
+import javax.swing.JFrame;
+
 public class Match {
-    private String organizer;
-    private String side1;
-    private String side2;
-    private String ground;
-    private String tossVictor;
-    private String tossDecision;
+    public MatchSettings matchSettings;
 
     public List<String> team1 = new ArrayList<String>();
     public List<String> team2 = new ArrayList<String>();
     
     public List<List<String>> teams = new ArrayList<List<String>>();
     
-    public Match(String organizer, String side1, String side2, String ground, String tossVictor, String tossDecision){
-        this.organizer = organizer;
-        this.side1 = side1;
-        this.side2 = side2;
-        this.ground = ground;
-        this.tossVictor = tossVictor;
-        this.tossDecision = tossDecision;
+    public Match(JFrame window){
+        this.matchSettings = MatchSettings.LoadMatchSettings(window);
         teams.add(team1);
         teams.add(team2);
-    }
-
-    public String getTossDecision() {
-        return tossDecision;
-    }
-
-    public void setTossDecision(String tossDecision) {
-        this.tossDecision = tossDecision;
-    }
-
-    public String getTossVictor() {
-		return tossVictor;
-	}
-
-	public void setTossVictor(String tossVictor) {
-		this.tossVictor = tossVictor;
-	}
-
-	public String getGround() {
-		return ground;
-	}
-
-	public void setGround(String ground) {
-		this.ground = ground;
-	}
-
-	public String getOrganizer() {
-        return organizer;
-    }
-
-    public void setOrganizer(String organizer) {
-        this.organizer = organizer;
-    }
-
-    public String getSide1() {
-        return side1;
-    }
-
-    public void setSide1(String side1) {
-        this.side1 = side1;
-    }
-
-    public String getSide2() {
-        return side2;
-    }
-
-    public void setSide2(String side2) {
-        this.side2 = side2;
-    }
-
-    public void printData(){
-        System.out.println(this.getOrganizer() + ":" + this.getSide1() + " vs " + this.getSide2() + " At " + this.ground + " And toss Won by " + this.tossVictor + " And decided to " + this.tossDecision);
     }
 }

@@ -4,8 +4,7 @@ import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.event.*;
 
-import javax.swing.BoxLayout;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class Main implements ActionListener{
 	public static void main(String[] args) {
@@ -30,20 +29,27 @@ public class Main implements ActionListener{
 		bowlerPanel.setBounds(W/100 + W * 5/10 + 20, W/33, W * 5/10 - 50, H * 5/10);
 		bowlerPanel.setBackground(new Color(200,200,200));
 		
+		
 		newMatch.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				if(e.getActionCommand() == "New Match"){
-					Match match = MatchSettings.LoadMatchSettings(window);
-					match.printData();
+				if(e.getActionCommand().equals("New Match")){
+					Match match = new Match(window);
 					match = TeamSettings.LoadTeamSettings(window, match, 0);
 					match = TeamSettings.LoadTeamSettings(window, match, 1);
+					match.matchSettings.printData();
+					for(String s : match.teams.get(0)){
+						System.out.println(s);
+					}
+					for(String s : match.teams.get(1)){
+						System.out.println(s);
+					}
 				}
 			}
 		});
-
+		
+		panel.add(batsmenPanel);			
 		topBar.add(newMatch);
 		panel.add(topBar);
-		panel.add(batsmenPanel);
 		panel.add(bowlerPanel);
 		window.add(panel);
 		window.setVisible(true);

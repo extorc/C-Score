@@ -3,8 +3,69 @@ package Utils;
 import javax.swing.*;
 
 public class MatchSettings {
+	public String organizer, side1, side2, ground, tossVictor, tossdecision;
+
+	public MatchSettings(String organizer,String side1,String side2,String ground,String tossVictor,String tossdecision){
+		this.organizer = organizer;
+		this.side1 = side1;
+		this.side2 = side2;
+		this.ground = ground;
+		this.tossVictor = tossVictor;
+		this.tossdecision = tossdecision;
+	}
+
+	public String getOrganizer() {
+		return organizer;
+	}
+
+	public void setOrganizer(String organizer) {
+		this.organizer = organizer;
+	}
+
+	public String getSide1() {
+		return side1;
+	}
+
+	public void setSide1(String side1) {
+		this.side1 = side1;
+	}
+
+	public String getSide2() {
+		return side2;
+	}
+
+	public void setSide2(String side2) {
+		this.side2 = side2;
+	}
+
+	public String getGround() {
+		return ground;
+	}
+
+	public void setGround(String ground) {
+		this.ground = ground;
+	}
+
+	public String getTossVictor() {
+		return tossVictor;
+	}
+
+	public void setTossVictor(String tossVictor) {
+		this.tossVictor = tossVictor;
+	}
+
+	public String getTossdecision() {
+		return tossdecision;
+	}
+
+	public void setTossdecision(String tossdecision) {
+		this.tossdecision = tossdecision;
+	}
+	public void printData(){
+        System.out.println(this.getOrganizer() + ":" + this.getSide1() + " vs " + this.getSide2() + " At " + this.ground + " And toss Won by " + this.tossVictor + " And decided to " + this.tossdecision);
+    }
 	@SuppressWarnings("unused")
-	public static Match LoadMatchSettings(JFrame window) {
+	public static MatchSettings LoadMatchSettings(JFrame window) {
 		JTextField organizer = new JTextField(10);
 		JTextField side1 = new JTextField(10);
 		JTextField side2 = new JTextField(10);
@@ -37,6 +98,6 @@ public class MatchSettings {
 		JComboBox<String> tossDecision = new JComboBox<String>(decision);
 		tossPanel.add(tossDecision);
 		CInputPopUp tossPopUp = new CInputPopUp(window, tossPanel, "Conduct the Toss");
-		return new Match(organizer.getText(), side1.getText(), side2.getText(), ground.getText(), tossDropDown.getSelectedItem().toString(), tossDecision.getSelectedItem().toString());
+		return new MatchSettings(organizer.getText(), side1.getText(), side2.getText(), ground.getText(), tossDropDown.getSelectedItem().toString(), tossDecision.getSelectedItem().toString());
 	}
 }
